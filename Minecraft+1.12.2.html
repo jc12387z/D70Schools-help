@@ -4,29 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft 1.12.2 Eaglercraft</title>
+    <!-- Loader -->
+    <script src="path/to/loader.js"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <!-- WebAssembly Support -->
+    <script>
+      if (!('WebAssembly' in window)) {
+          alert('WebAssembly is not supported in this browser. Please update or change your browser.');
+      }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Minecraft 1.12.2 Eaglercraft!</h1>
-    <p>This is an updated version of Minecraft designed for Eagler. Experience the game like never before!</p>
-    <section>
-        <h2>Features</h2>
-        <ul>
-            <li>Improved Performance</li>
-            <li>New Eaglercraft mechanics</li>
-            <li>Enhanced graphics and sound</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Installation</h2>
-        <p>To install, follow these simple steps:</p>
-        <ol>
-            <li>Download the Eaglercraft client.</li>
-            <li>Extract the files to your Minecraft directory.</li>
-            <li>Run the Eaglercraft launcher.</li>
-        </ol>
-    </section>
-    <footer>
-        <p>&copy; 2026 Eaglercraft Team</p>
-    </footer>
+    <canvas id="gameFrame"></canvas>
+    <script>
+        // Initialize the game in the canvas
+        const canvas = document.getElementById('gameFrame');
+        const ctx = canvas.getContext('2d');
+        // Add your game initialization code here
+    </script>
 </body>
 </html>
