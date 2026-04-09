@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minecraft 1.12.2 Eaglercraft</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_TRACKING_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'YOUR_GA_TRACKING_ID');
+    </script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Welcome to Minecraft 1.12.2 Eaglercraft</h1>
+    <div id="game-container"></div>
+    <script type="module" src="game.js"></script>
+    <script>
+        // WebAssembly loading
+        const loadWasm = async (url) => {
+            const response = await fetch(url);
+            const buffer = await response.arrayBuffer();
+            const module = await WebAssembly.instantiate(buffer);
+            return module.instance;
+        };
+
+        // Game loader initialization
+        const startGame = async () => {
+            const wasmModule = await loadWasm('game.wasm');
+            // Initialize game with wasmModule
+            initializeGame(wasmModule);
+        };
+
+        startGame();
+    </script>
+</body>
+</html>
